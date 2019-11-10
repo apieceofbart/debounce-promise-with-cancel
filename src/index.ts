@@ -1,4 +1,4 @@
-function debounce<T, A>(fn: (...args: A[]) => T, ms = 0) {
+function debounce<T, A>(fn: (...args: A[]) => Promise<T>, ms = 0) {
   let timer: ReturnType<typeof setTimeout> | undefined = undefined
   let cancelled = false
 
