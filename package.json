@@ -1,0 +1,28 @@
+{
+  "name": "debounce-promise-with-cancel",
+  "version": "1.0.0",
+  "description": "Debounce utility for functions returning promise, with a possibility to cancel",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apieceofbart/debounce-promise-with-cancel.git"
+  },
+  "keywords": [
+    "debounce",
+    "promise"
+  ],
+  "author": "Bartek Kozera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apieceofbart/debounce-promise-with-cancel/issues"
+  },
+  "homepage": "https://github.com/apieceofbart/debounce-promise-with-cancel#readme",
+  "devDependencies": {
+    "typescript": "^3.7.2"
+  }
+}
