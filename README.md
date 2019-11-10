@@ -6,15 +6,32 @@ A debounce utility for functions returning promises with an option to cancel
 
 I needed a simple utility for debouncing fetch calls with the ability to cancel requests in case of errors
 
-## Example usage
+## Instalation and usage
 
-`npm install debounce-promise-with-cancel` or `yarn add debounce-promise-with-cancel`
+Install:
+```
+npm install debounce-promise-with-cancel
+``` 
+or 
+```
+yarn add debounce-promise-with-cancel
+```
 
+Import:
 ```
 import { debounce } from 'debounce-promise-with-cancel'
-// default import works too: 
-// import debounce from 'debounce-promise-with-cancel'
+```
+or as default import
+```
+import debounce from 'debounce-promise-with-cancel'
+```
+or as commonjs
+```
+const debounce = require('debounce-promise-with-cancel')
+```
 
+Usage:
+```
 const debouncedFetch = debounce(fetchData, 500)
 
 ...
@@ -25,10 +42,6 @@ debouncedFetch.cancel()
 
 Please check this codesandbox for a an example (React + Typescript):
 https://codesandbox.io/s/example-of-using-debounce-promise-with-cancel-91p6g
-
-## TODO
-
-Add test, more examples
 
 ## Similar solutions
 
