@@ -1,6 +1,6 @@
 {
   "name": "debounce-promise-with-cancel",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Debounce utility for functions returning promise, with a possibility to cancel",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
