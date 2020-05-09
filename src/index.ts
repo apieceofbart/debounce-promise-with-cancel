@@ -1,26 +1,35 @@
 function debounce<T, A extends Array<unknown>>(fn: (...args: A) => Promise<T>, ms = 0) {
-  let timer: ReturnType<typeof setTimeout> | undefined = undefined
-  let cancelled = false
+	let lastTimer: ReturnType<typeof setTimeout> | undefined = undefined
+	let cancelled = false
 
-  const debounced = (...args: A) => {
-    cancelled = false
-    if (timer) {
-      clearTimeout(timer)
-    }
-    return new Promise<T>(resolve => {
-      timer = setTimeout(() => {
-        if (!cancelled) {
-          resolve(fn(...args))
-        }
-      }, ms)
-    })
-  }
+	const debounced = (...args: A) => {
+		cancelled = false
+		if (lastTimer) {
+			clearTimeout(lastTimer)
+		}
+		return new Promise<T>((resolve, reject) => {
+			const curTimer = setTimeout(async () => {
+				try {
+					let res;
+					if (!cancelled && curTimer === lastTimer) {
+						res = await fn(...args)
+					}
+					if (!cancelled && curTimer === lastTimer) {
+						resolve(res)
+					}
+				} catch (e) {
+					reject(e)
+				}
+			}, ms)
+			lastTimer = curTimer;
+		})
+	}
 
-  debounced.cancel = function() {
-    cancelled = true
-  }
+	debounced.cancel = function() {
+		cancelled = true
+	}
 
-  return debounced
+	return debounced
 }
 
 export default debounce
